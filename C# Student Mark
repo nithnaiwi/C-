@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace _1
+{
+    public partial class Form1: Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            txttotal.Enabled = false;
+            txtlevel.Enabled = false;
+        }
+
+        private void btnshow_Click(object sender, EventArgs e)
+        {
+            int csharp, php, linux, ios, dbms, total;
+
+            csharp =int.Parse(txtcsharp.Text);
+            php = int.Parse(txtphp.Text);
+            linux = int.Parse(txtlinux.Text);
+            ios = int.Parse(txtios.Text);
+            dbms = int.Parse(txtdbms.Text);
+            total = csharp + php + linux + ios + dbms;
+            txttotal.Text =total.ToString();
+
+            string level;
+            if (total >= 90)
+            {
+                level = "A";
+            }else if(total >= 75)
+            {
+                level = "B";
+            }else if (total >=60)
+            {
+                level = "C";
+            }
+            else
+            {
+                level = "F";
+            }
+            txtlevel.Text =level;
+        }
+    }
+}
